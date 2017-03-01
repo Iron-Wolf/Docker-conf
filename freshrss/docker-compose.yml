@@ -1,0 +1,31 @@
+version: '2'
+
+networks:
+  lb_web:
+    external: true
+  back:
+    driver: bridge
+
+services:
+  app:
+    image: linuxserver/freshrss
+    volumes:
+      - ./freshrss:/config
+    links:
+      - db
+    environment:
+      - PGID
+      - PUID
+      - VIRTUAL_HOST
+    networks:
+      - back
+      - lb_web
+  db:
+    image: mysql
+    volumes:
+      - ./mysql/runtime:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    networks:
+      - back
+

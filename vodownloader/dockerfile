@@ -1,0 +1,43 @@
+# build : docker build -t docker-vod .
+# run   : docker run -it docker-vod
+
+FROM debian:jessie
+
+# install base packages
+#RUN apk upgrade --update && \
+#    apk add --update git bash unzip tar sshpass curl
+RUN apt-get update && apt-get install -y unzip sshpass curl python libav-tools
+
+
+# install git projects
+ENV WEBSOCKETD_VERSION 0.2.12
+
+RUN curl -fsSL -o websocketd.zip \
+        "https://github.com/joewalnes/websocketd/releases/download/v${WEBSOCKETD_VERSION}/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip" \
+    && curl -fsSL -o youtube-dl.tar.gz \
+        "https://github.com/rg3/youtube-dl/releases/download/2017.02.14/youtube-dl-2017.02.14.tar.gz"
+
+
+# configure downloaded packages
+RUN unzip -d /tmp/websocket websocketd.zip \
+    && mv /tmp/websocket/websocketd /tmp/websocketd \
+    && rm -rf /tmp/websocket \
+    && tar -xzf youtube-dl.tar.gz -C /tmp \
+    && mv /tmp/youtube-dl/youtube-dl /tmp/youtube \
+    && rm -rf /tmp/youtube-dl \
+    && mv /tmp/youtube /tmp/youtube-dl
+
+
+# clean up
+RUN mkdir -p /var/www \
+#-    && mv /VODownloader /tmp/vodownloader \
+#-    && mv /tmp/websocketd /var/www/html/websocketd \
+#-    && mv /tmp/youtube-dl /var/www/html/youtube-dl \
+    && rm -rf youtube-dl.tar.gz && rm -rf websocketd.zip
+
+
+EXPOSE 8080-8082
+VOLUME /var/www/html
+
+WORKDIR /var/www/html/
+ENTRYPOINT ["./startT2K.sh"]

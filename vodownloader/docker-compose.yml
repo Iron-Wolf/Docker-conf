@@ -1,0 +1,26 @@
+version: '2'
+
+networks:
+  back:
+    driver: bridge
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - 81:80
+    links:
+      - app
+    volumes_from:
+      - app
+    networks:
+      - back
+  app:
+    image: docker-vod
+    volumes:
+      - ./vodownloader:/var/www/html
+    ports:
+      - 8080-8082:8080-8082
+    networks:
+      - back
