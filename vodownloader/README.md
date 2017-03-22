@@ -1,7 +1,7 @@
-#Presentation
+# Presentation
 Docker implementation of the [VODownloader project](https://github.com/Iron-Wolf/VODownloader).  
 
-##Preconfiguration :
+## Preconfiguration :
 * Change the __IP address__ in the [init.sh](https://github.com/Iron-Wolf/Docker-conf/blob/master/vodownloader/init.sh) script 
 to your own network configuration.
 
@@ -12,7 +12,7 @@ Default websocket port : 8080 to 8082
 
 
 
-##Installation
+## Installation
 Clone the repo and build image
 ```bash
 git clone https://github.com/Iron-Wolf/Docker-conf.git
@@ -26,5 +26,5 @@ Initialize the project directory and lauch the container
 docker-compose up -d
 ```
 
-##Access website
+## Access website
 Open a web browser with the following pattern : http://[IP address]:81  
