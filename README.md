@@ -11,7 +11,9 @@ I've configured mine with mysql.
 No change.
 
 ### HAProxy [![][haproxy badge g]][haproxy github] 
-No change.
+No change.  
+Reminder : this container use a custom cron job to update RSS feeds, in ``etc/cont-init.d/40-install``  
+``*/15 * * * * /usr/bin/php7 /config/www/freshrss/app/actualize_script.php > /tmp/FreshRSS.log 2>&1``
 
 
 
