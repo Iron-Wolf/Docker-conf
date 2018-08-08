@@ -18,15 +18,15 @@ No change.
 
 
 
-[freshrss badge d]: https://img.shields.io/badge/FreshRSS-Docker-blue.svg
-[freshrss badge g]: https://img.shields.io/badge/FreshRSS-Github-brightgreen.svg
+[freshrss badge d]: https://badgen.net/badge//FreshRSS?icon=docker
+[freshrss badge g]: https://badgen.net/badge//FreshRSS/green?icon=github
 [freshrss docker]: https://hub.docker.com/r/linuxserver/freshrss/
 [freshrss github]: https://github.com/linuxserver/docker-freshrss
 
-[nextcloud badge d]: https://img.shields.io/badge/NextCloud-Docker-blue.svg
-[nextcloud badge g]: https://img.shields.io/badge/NextCloud-Github-brightgreen.svg
+[nextcloud badge d]: https://badgen.net/badge//NextCloud?icon=docker
+[nextcloud badge g]: https://badgen.net/badge//NextCloud/green?icon=github
 [nextcloud docker]: https://hub.docker.com/r/indiehosters/nextcloud/
 [nextcloud github]: https://github.com/indiehosters/nextcloud
 
-[haproxy badge g]: https://img.shields.io/badge/HAProxy-Github-brightgreen.svg
+[haproxy badge g]: https://badgen.net/badge//HAProxy/green?icon=github
 [haproxy github]: https://github.com/indiehosters/haproxy
