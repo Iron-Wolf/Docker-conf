@@ -60,4 +60,7 @@ docker rmi -f $(docker images -q)
 # --follow is like tail -f
 # container id/name can be added at the end of the command
 docker-compose logs --follow
+
+# Log into a container
+docker exec -it <container> bash
 ```
